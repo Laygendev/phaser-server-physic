@@ -290,22 +290,7 @@ class SceneManager {
 			var loader;
 
 			if (scene.sys.load) {
-				// Render ?
 				loader = scene.sys.load;
-			}
-
-			if (loader && scene.sys.settings.hasOwnProperty('pack')) {
-				loader.reset();
-
-				if (loader.addPack({ paypload: scene.sys.settings.pack })) {
-					scene.sys.settings.status = CONST.LOADING;
-
-					loader.once('complete', this.payLoadComplete, this);
-
-					loader.start();
-
-					return this;
-				}
 			}
 
 			this.bootScene(scene);
@@ -328,26 +313,27 @@ class SceneManager {
 		}
 
 		this.create(scene);
-		// var loader;
-		//
-		// if (sys.load) {
-		// 	loader = sys.load;
-		// 	loader.reset();
-		// }
-		//
-		// if (loader && scene.preload) {
-		// 	scene.preload.call(scene);
-		//
-		// 	if (loader.list.size === 0) {
-		// 	} else {
-		// 		settings.status = CONST.LOADING;
-		//
-		// 		console.log('load');
-		// 		loader.once('complete', this.loadComplete, this);
-		//
-		// 		loader.start();
-		// 	}
-		// }
+
+		var loader;
+
+		if (sys.load) {
+			loader = sys.load;
+			// loader.reset();
+		}
+
+		if (loader && scene.preload) {
+			scene.preload.call(scene);
+
+			if (loader.list.size === 0) {
+			} else {
+				settings.status = CONST.LOADING;
+
+				console.log('load');
+				loader.once('complete', this.loadComplete, this);
+
+				loader.start();
+			}
+		}
 	}
 
 	loadComplete (loader) {

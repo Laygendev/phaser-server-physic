@@ -6,11 +6,14 @@
 
 import CONST from './const';
 import EventEmitter from 'events';
+import LoaderPlugin from './../loader/LoaderPlugin';
 import Settings from './Settings';
 
 class Systems {
 	constructor (scene, config) {
 		this.scene = scene;
+
+		this.load = new LoaderPlugin(this);
 
 		this.server;
 

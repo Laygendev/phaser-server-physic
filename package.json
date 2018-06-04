@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "npm run build && node ./dist/index.js",
-		"rollup": "rollup -c",
+    "rollup": "rollup -c",
     "build": "rimraf dist/ && babel ./src/ --out-dir ./dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files"
   },
   "repository": {
