@@ -33,7 +33,12 @@ class File {
 	}
 
 	load () {
-
+		fs.readFile(this.path, 'utf8', (err, data) => {
+			if (err) console.log(err);
+			this.state = CONST.FILE_COMPLETE;
+			this.data = data;
+			this.loader.fileProcessComplete(this);
+		});
 	}
 
 	destroy () {

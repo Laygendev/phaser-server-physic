@@ -316,6 +316,8 @@ class SceneManager {
 
 		var loader;
 
+		console.log(sys.load);
+
 		if (sys.load) {
 			loader = sys.load;
 			// loader.reset();
@@ -327,9 +329,6 @@ class SceneManager {
 			if (loader.list.size === 0) {
 			} else {
 				settings.status = CONST.LOADING;
-
-				console.log('load');
-				loader.once('complete', this.loadComplete, this);
 
 				loader.start();
 			}

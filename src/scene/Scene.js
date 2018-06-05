@@ -4,6 +4,7 @@
  * @license   {@link https://github.com/layygdendev/phaser-3-multiplayer-simple/blob/master/license.txt|MIT License}
  */
 
+import ArcadePhysics from './../physics/arcade/ArcadePhysics';
 import Systems from './Systems';
 
 class Scene {
@@ -30,7 +31,7 @@ class Scene {
 
 		this.time;
 
-		this.physics;
+		this.physic = new ArcadePhysics(this);
 	}
 
 	update () {

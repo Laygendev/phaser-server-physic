@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm run build && node ./dist/index.js",
     "rollup": "rollup -c",
-    "build": "rimraf dist/ && babel ./src/ --out-dir ./dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files"
+    "build": "rimraf dist/ && babel ./src/ ./assets/ --out-dir ./dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files"
   },
   "repository": {
     "type": "git",

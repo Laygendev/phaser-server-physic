@@ -20,8 +20,7 @@ var game = new Server(config);
 
 function preload ()
 {
-	console.log('preload');
-	this.load.tilemapTiledJSON("map", "./level.json");
+	this.sys.load.tilemapTiledJSON("map", "./dist/level.json");
 }
 
 function create ()
